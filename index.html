@@ -1,175 +1,160 @@
-< ! DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-	  content="width=device-width, initial-
-		   scale=1.0">
-    <title>Para ella</title>
-<style>
-* {
-	box-sizing: border-box
-}
-body {
-	margin: 0;
-	min-height: 100vh;
-	background: #111;
-	color: white;
-	font-family: Arial, sans-serif;
-	display: flex;
-	justify-content: center;
-	align-items center;
-	overflow: hidden;
-}
-.pagina {
-	width: 100%;
-	min-height: 100vh;
-	display: flex;
-	justify-content: center;
-align-items: center;
-text-align: center;
-padding: 30px;
-}
-/* PRIMERA PAGINA */
-#pagina1 {
-	background: linear-gradient( 135deg, #111, #242424) ;
-}
-.caja {
-	background rgba(255,255,255,0.06) ;
-	padding: 45px;
-	border-radius: 25px;
-	width: 90%;
-	max-width: 450px;
-	box-shadow: 0 0 40px rgba(255,255,255,0.08);
-}
-.caja h1 {
-font-size:m 30px;
-margin-bottom: 10px;
-}
-.caja p {
-	color: #ccc;
-	font-size: 17px;
-}
-input {
-	width: 100%;
-	padding: 14px;
-	margin-top: 20px;
-	border: none;
-	border-radius: 18px;
-	text-align: center;
-	outline: center;
-}
-button {
-	margin-top: 20px;
-	padding: 13px 30px;
-	border: none;
-	border-radius: 10px;
-	background: white;
-	color: #111;
-	font-size: 17px;
-	cursor: pointer;
-	transition: 0.3s;
-}
-button:hover {
-transform: scale(1.5) ;
-}
-#error {
-	color: #ff6b6b;
-	display: none;
-}
-/* SEGUNDA PAGINA*/
-#pagina2 {
-	display: none;
-	background: linear-gradient(135deg, #180f14, #301923);
-}
-.mensaje {
-	max-width: 800px;
-	animation: aparecer 2s ease;
-}
-.mensaje h1 {
-	font-family: Georgia, serif;
-	font-size: 45px;
-	font-weight: normal;
-	line-height: 1.4;
-}
-.mensaje p {
-	margin-top: 30px;
-	color: #ccc;
-	font-size: 18px;
-}
-@keyframes aparecer {
-	from {
-		opacity: 0;
-		transform: translateY(30px)
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi página</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #111827, #1e3a8a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .pantalla {
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.45);
+            padding: 40px 25px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        h1 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        input {
+            width: 80%;
+            padding: 15px;
+            margin: 20px 0;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            background: #2563eb;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        #paginaPrincipal {
+            display: none;
+        }
+
+        .tarjeta {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+        }
+    </style>
 </head>
+
 <body>
-	<!-- ========================= -->
-	<!--       PRIMERA PAGINA      -->
-	<!-- ========================= -->
-	<section id="paginal" class="pagina">
-		<div class="caja">
-			<h1>Antes de entar...<h1/>
-					<p>
-					para continuar, pon el año que nos conocimos.
-					</p>
-					<input
-							type="number"
-							id="año"
-							placeholder= "año que nos conocimos"
-							>
-							<button onclick=entrar"()">
-								Entrar
-							</button>
-					<p id="error">
-					El año no es correcto.
-					</p>
-		</div>
-		</section>
-		<!-- ========================= -->
-		<!--    SEGUNDA PAGINA         -->
-		<!-- ========================= -->
-		<section id="pagina2" class="pagina">
-			<div class="mensaje">
-				<h1>
-					Perdon por no haber sido
-					el chico que hubieras esperado.
-				</h1>
-				<p>
-				Tal vezno fui lo que imaginabas,
-				pero quiero que sepas que te amo por si un dia me buscas aqui estare....
-				</p>
-			</div>
-		</section>
-		<!-- ========================= -->
-		<!--      JAVASCRIPT           -->
-		<!-- ========================= -->
-		<script>
-			function entrar() {
-				// Obtenemos lo que escribio
-				const anio = document.getElementById("anio").value;
-				//Elementos de la pagina
-				const pagina1 = document.getElementById("pagina1");
-				const pagina2 = document.getElementById("pagina2");
-				const error = document,getElementById("eror");
-				//comprobamos el año
-				if (anio === "2023") {
-					// ocultamos la primera pagina 
-					paginal.style.display = "none";
-					// mostramos la segunda 
-					pagina2.style.display = "flex";
-				} else {
-					// mostramos mensaje de error 
-					error.style.display = "black";
-				}
-			}
-		</script>
+
+    <!-- PANTALLA DE ENTRADA -->
+    <div class="pantalla" id="entrada">
+
+        <h1>Antes de entrar...</h1>
+
+        <p>
+            Para continuar, pon el año que nos conocimos.
+        </p>
+
+        <input
+            type="number"
+            id="anio"
+            placeholder="Escribe el año"
+        >
+
+        <br>
+
+        <button onclick="entrar()">
+            Entrar
+        </button>
+
+        <p id="mensaje"></p>
+
+    </div>
+
+
+    <!-- PÁGINA PRINCIPAL -->
+    <div class="pantalla" id="paginaPrincipal">
+
+        <h1>¡Bienvenido! ❤️</h1>
+
+        <p>
+            Has entrado correctamente a la página.
+        </p>
+
+        <div class="tarjeta">
+
+            <h2>Mi página</h2>
+
+            <p>
+                Aquí puedes colocar tus fotos, recuerdos,
+                información y todo lo que quieras compartir.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function entrar() {
+
+            const anio = document.getElementById("anio").value;
+            const mensaje = document.getElementById("mensaje");
+
+            if (anio === "2023") {
+
+                document.getElementById("entrada").style.display = "none";
+
+                document.getElementById("paginaPrincipal").style.display = "block";
+
+            } else if (anio === "") {
+
+                mensaje.textContent = "Escribe el año para continuar.";
+
+            } else {
+
+                mensaje.textContent = "Año incorrecto. Inténtalo nuevamente.";
+
+            }
+        }
+
+    </script>
+
 </body>
 </html>
-
