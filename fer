@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: white;
+        }
+
+        .pantalla {
+            width: 90%;
+            max-width: 450px;
+            padding: 35px 25px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 32px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        input {
+            width: 80%;
+            padding: 14px;
+            margin: 15px 0;
+            border: none;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        button {
+            padding: 13px 30px;
+            border: none;
+            border-radius: 20px;
+            background: white;
+            color: #ff4f81;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        #segunda {
+            display: none;
+        }
+
+        .corazones {
+            font-size: 40px;
+            margin: 15px;
+        }
+
+        #error {
+            color: #ffd6df;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PRIMERA PANTALLA -->
+    <div class="pantalla" id="primera">
+
+        <div class="corazones">❤️ 💕 ❤️</div>
+
+        <h1>Antes de entrar...</h1>
+
+        <p>
+            Para continuar, pon el año en que nos conocimos.
+        </p>
+
+        <input 
+            type="number" 
+            id="anio" 
+            placeholder="Escribe el año"
+        >
+
+        <br>
+
+        <button onclick="entrar()">
+            Entrar ❤️
+        </button>
+
+        <p id="error"></p>
+
+    </div>
+
+
+    <!-- SEGUNDA PANTALLA -->
+    <div class="pantalla" id="segunda">
+
+        <div class="corazones">💗 💕 💗</div>
+
+        <h1>Bienvenida ❤️</h1>
+
+        <p>
+            Si llegaste hasta aquí significa que
+            encontraste el año correcto.
+        </p>
+
+        <p>
+            Hice esta pequeña página especialmente
+            para ti. PERDON POR NO SER COMO ESPERABAS OJALA ENCUENTRES AH ALGGUIEN 💕
+        </p>
+
+        <p>
+            Espero que te guste mucho. ❤️
+        </p>
+
+        <div class="corazones">
+            💕 ❤️ 💕
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function entrar() {
+
+            const anio = document.getElementById("anio").value;
+
+            /*
+             CAMBIA 2023 POR EL AÑO CORRECTO
+            */
+
+            if (anio === "2023") {
+
+                document.getElementById("primera").style.display = "none";
+
+                document.getElementById("segunda").style.display = "block";
+
+            } else {
+
+                document.getElementById("error").textContent =
+                    "Ese no es el año correcto 😢";
+
+            }
+        }
+
+    </script>
+
+</body>
+</html>
